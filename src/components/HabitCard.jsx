@@ -1,7 +1,7 @@
 import { Card, Button, Badge } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function HabitCard({ habit }) {
+export default function HabitCard({ habit, onDelete, onToggleDone }) {
   return (
     <Card className="mb-3">
       <Card.Body className="d-flex justify-content-between align-items-center">
@@ -16,13 +16,16 @@ export default function HabitCard({ habit }) {
           <Button
             variant={habit.completedToday ? "success" : "outline-success"}
             className="me-2"
+            onClick={() => onToggleDone(habit.id)}
           >
             {habit.completedToday ? "Done Today ✓" : "Mark"}
           </Button>
           <Link to={`/edit/${habit.id}`} className="btn btn-warning me-2">
             Edit
           </Link>
-          <Button variant="danger">Delete</Button>
+          <Button variant="danger" onClick={() => onDelete(habit.id)}>
+            Delete
+          </Button>
         </div>
       </Card.Body>
     </Card>

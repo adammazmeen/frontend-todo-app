@@ -3,6 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import Home from "./pages/Home";
 import AddHabit from "./pages/AddHabit";
 import EditHabit from "./pages/EditHabit";
+import ErrorPage from "./pages/ErrorPage";
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/add" element={<AddHabit />} />
           <Route path="/edit/:id" element={<EditHabit />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Container>
     </BrowserRouter>
